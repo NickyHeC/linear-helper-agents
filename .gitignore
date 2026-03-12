@@ -1,0 +1,7 @@
+.env
+*.pyc
+__pycache__/
+.cache/
+.venv/
+neglect_report*.md
+linear_revamp*.md
