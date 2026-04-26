@@ -5,3 +5,4 @@ __pycache__/
 .venv/
 neglect_report*.md
 linear_revamp*.md
+weekly_report/
