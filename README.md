@@ -57,11 +57,11 @@ cp env.example .env
 # Edit .env with your actual keys and server slug
 
 # Copy template scripts to create your local working copies
-cp connection.template.py connection.py
-cp weekly_report.template.py weekly_report.py
-cp compile_neglected_report.template.py compile_neglected_report.py
-cp categorize_issues.template.py categorize_issues.py
-cp project_revamp_check.template.py project_revamp_check.py
+cp templates/connection.template.py connection.py
+cp templates/weekly_report.template.py weekly_report.py
+cp templates/compile_neglected_report.template.py compile_neglected_report.py
+cp templates/categorize_issues.template.py categorize_issues.py
+cp templates/project_revamp_check.template.py project_revamp_check.py
 # Edit the local copies as needed (they are gitignored)
 ```
 
@@ -163,17 +163,18 @@ On the first run, the Dedalus platform may require a one-time OAuth authorizatio
 
 ```
 linear-helper/
-├── connection.template.py                    # Linear MCP credential config (copy to connection.py)
-├── compile_neglected_report.template.py      # Step 1: Generate neglect report
-├── project_revamp_check.template.py          # Step 2: Verify project actions
-├── categorize_issues.template.py             # Step 3: Categorize & apply issue changes
-├── weekly_report.template.py                 # Weekly status report generator
+├── templates/
+│   ├── connection.template.py                # Linear MCP credential config
+│   ├── compile_neglected_report.template.py  # Step 1: Generate neglect report
+│   ├── project_revamp_check.template.py      # Step 2: Verify project actions
+│   ├── categorize_issues.template.py         # Step 3: Categorize & apply issue changes
+│   └── weekly_report.template.py             # Weekly status report generator
 ├── requirements.txt                          # Python dependencies
 ├── env.example                               # Environment variable template
 └── .gitignore
 ```
 
-The `.template.py` files are tracked in git. Copy them to `.py` (e.g. `connection.py`) for local use — the `.py` copies are gitignored so your customizations stay local.
+The `templates/` folder contains generic `.template.py` files tracked in git. Copy them to the root as `.py` files (e.g. `cp templates/connection.template.py connection.py`) for local use — the root `.py` copies are gitignored so your customizations stay local.
 
 ## License
 
