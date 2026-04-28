@@ -8,7 +8,6 @@ linear_revamp*.md
 weekly_report/
 
 # Local scripts (contain company-specific config); use *.template.py as starting point
-connection.py
 weekly_report.py
 compile_neglected_report.py
 categorize_issues.py
