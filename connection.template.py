@@ -5,6 +5,8 @@ expected credential schema (connection name + secret key name).
 
 SecretValues encrypts the token client-side; it is only decrypted
 inside the Dedalus secure enclave at dispatch time.
+
+Copy this file to connection.py and update with your actual values.
 """
 
 import os

@@ -1,9 +1,11 @@
-"""Weekly report — Nicky's Linear issues with status changes this week.
+"""Weekly report — Linear issues with status changes this week.
 
-Pulls issues assigned to Nicky that were newly created or had a status
-change between Monday of the current week and now. Exports a concise
-markdown report grouped by status transition (Done first) then newly
-created issues at the end.
+Pulls issues assigned to a given user that were newly created or had a
+status change between Monday of the target week and the end of that week.
+Exports a concise markdown report grouped by status transition (Done first)
+then newly created issues at the end.
+
+Copy this file to weekly_report.py and update DEFAULT_ASSIGNEE.
 
 Usage:
     python weekly_report.py
@@ -30,6 +32,7 @@ LINEAR_MCP_SERVER = os.getenv("LINEAR_MCP_SERVER")
 MODEL = os.getenv("MODEL", "anthropic/claude-sonnet-4-20250514")
 TIMEOUT = int(os.getenv("AGENT_TIMEOUT", "600"))
 
+DEFAULT_ASSIGNEE = os.getenv("LINEAR_ASSIGNEE", "me")
 
 REPORT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "weekly_report")
 
@@ -242,7 +245,7 @@ async def main() -> None:
         print("Error: LINEAR_MCP_SERVER not set. See env.example.")
         sys.exit(1)
 
-    assignee = "Nicky"
+    assignee = DEFAULT_ASSIGNEE
     week_of = None
     for i, arg in enumerate(sys.argv[1:], 1):
         if arg == "--assignee" and i < len(sys.argv) - 1:

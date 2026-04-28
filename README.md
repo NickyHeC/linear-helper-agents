@@ -38,7 +38,7 @@ Each script uses the Dedalus SDK to dispatch an LLM agent that calls a hosted Li
 - Python 3.11+
 - A [Dedalus](https://dedalus.dev) account and API key
 - A [Linear](https://linear.app) personal API key
-- A hosted Linear MCP server on the Dedalus marketplace (e.g. one built with [linear-mcp](https://github.com/NickyHeC/linear-mcp))
+- A hosted Linear MCP server on the Dedalus marketplace
 
 ## Setup
 
@@ -55,6 +55,14 @@ pip install -r requirements.txt
 # Configure environment
 cp env.example .env
 # Edit .env with your actual keys and server slug
+
+# Copy template scripts to create your local working copies
+cp connection.template.py connection.py
+cp weekly_report.template.py weekly_report.py
+cp compile_neglected_report.template.py compile_neglected_report.py
+cp categorize_issues.template.py categorize_issues.py
+cp project_revamp_check.template.py project_revamp_check.py
+# Edit the local copies as needed (they are gitignored)
 ```
 
 ### Required Environment Variables
@@ -155,14 +163,17 @@ On the first run, the Dedalus platform may require a one-time OAuth authorizatio
 
 ```
 linear-helper/
-├── compile_neglected_report.py   # Step 1: Generate neglect report
-├── project_revamp_check.py       # Step 2: Verify project actions
-├── categorize_issues.py          # Step 3: Categorize & apply issue changes
-├── connection.py                 # Linear MCP credential configuration
-├── requirements.txt              # Python dependencies
-├── env.example                   # Environment variable template
+├── connection.template.py                    # Linear MCP credential config (copy to connection.py)
+├── compile_neglected_report.template.py      # Step 1: Generate neglect report
+├── project_revamp_check.template.py          # Step 2: Verify project actions
+├── categorize_issues.template.py             # Step 3: Categorize & apply issue changes
+├── weekly_report.template.py                 # Weekly status report generator
+├── requirements.txt                          # Python dependencies
+├── env.example                               # Environment variable template
 └── .gitignore
 ```
+
+The `.template.py` files are tracked in git. Copy them to `.py` (e.g. `connection.py`) for local use — the `.py` copies are gitignored so your customizations stay local.
 
 ## License
 

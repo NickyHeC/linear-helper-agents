@@ -15,6 +15,8 @@ Set ACTION_NEEDED_IDS, MOVE_TO_PROJECT_IDS, and MOVE_TO_PROJECT_NAME via
 environment variables (comma-separated for lists) to customize which issues
 get special treatment.
 
+Copy this file to categorize_issues.py.
+
 Usage:
     python categorize_issues.py
     REPORT_PATH=neglect_report.md python categorize_issues.py

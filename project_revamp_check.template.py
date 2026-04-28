@@ -4,6 +4,8 @@ Reads the neglect report, extracts project titles and parenthetical actions,
 cross-checks each project's actual state in Linear, and writes verified
 results to linear_revamp_projects.md.
 
+Copy this file to project_revamp_check.py.
+
 Usage:
     python project_revamp_check.py
     REPORT_PATH=neglect_report.md python project_revamp_check.py

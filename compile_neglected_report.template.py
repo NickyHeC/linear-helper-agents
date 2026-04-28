@@ -4,6 +4,8 @@ Uses the Dedalus SDK to connect to a hosted Linear MCP server, gathers all
 projects and issues for a given team, scores them by neglect, and outputs
 a ranked report.
 
+Copy this file to compile_neglected_report.py.
+
 Usage:
     python compile_neglected_report.py                    # interactive
     python compile_neglected_report.py "My Team"          # specify team name
@@ -135,7 +137,7 @@ def _extract_connect_url(err: AuthenticationError) -> str | None:
 
 
 def _prompt_oauth(url: str) -> None:
-    print("\n🔐 Linear OAuth required. Opening browser...")
+    print("\nLinear OAuth required. Opening browser...")
     print(f"   If browser doesn't open, visit:\n   {url}")
     webbrowser.open(url)
     input("\n   Press Enter after completing OAuth...")
@@ -190,7 +192,7 @@ async def run_analysis(team_name: str, save_to_file: bool = False) -> str:
         filename = f"neglect_report_{today}.md"
         with open(filename, "w") as f:
             f.write(report)
-        print(f"\n📄 Report saved to: {filename}")
+        print(f"\nReport saved to: {filename}")
 
     return report
 
